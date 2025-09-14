@@ -3,9 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loan Repayment Calculator</title>
     <style>
+        body {
+            min-width: 1500px;
+        }
+
         #input-container {
             font-family: Arial, sans-serif;
             color: #555;
@@ -251,19 +254,17 @@
                 if (row['期数']) {
                     const earlyRepaymentRateInput = document.createElement('input');
                     td9.appendChild(earlyRepaymentRateInput);
-                    earlyRepaymentRateInput.addEventListener('keydown', (event) => {
-                        if (event.key === 'Enter') {
-                            const earlyRepaymentRate = parseFloat(earlyRepaymentRateInput.value) / 100;
-                            if (Number.isNaN(earlyRepaymentRate)) return;
-                            execEarlyRepayment(
-                                prevRow['剩余本金'],
-                                earlyRepaymentRate,
-                                row['本期截止今日利息'],
-                                row['累计利息'],
-                                td10,
-                                td11,
-                                td12);
-                        }
+                    earlyRepaymentRateInput.addEventListener('input', (event) => {
+                        const earlyRepaymentRate = parseFloat(earlyRepaymentRateInput.value) / 100;
+                        if (Number.isNaN(earlyRepaymentRate)) return;
+                        execEarlyRepayment(
+                            prevRow['剩余本金'],
+                            earlyRepaymentRate,
+                            row['本期截止今日利息'],
+                            row['累计利息'],
+                            td10,
+                            td11,
+                            td12);
                     });
                 }
 
