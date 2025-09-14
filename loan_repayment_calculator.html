@@ -121,8 +121,8 @@
         <thead>
             <tr>
                 <td rowspan="2">期数</td>
-                <td colspan="5" style="text-align: center; background-color: rgba(128, 255, 0, 0.411);">正常还款</td>
-                <td colspan="6" style="text-align: center; background-color: rgba(255, 174, 0, 0.559);">提前还款</td>
+                <td colspan="5" style="text-align: center; border-bottom: 2px solid rgb(114, 184, 255);">正常还款</td>
+                <td colspan="6" style="text-align: center; border-bottom: 2px solid rgb(255, 205, 97);">提前还款</td>
             </tr>
             <tr>
                 <td>本期应还</td>
@@ -209,7 +209,7 @@
             settlementFeeTd.textContent = settlementFee.toFixed(2);
 
             const earlyRepaymentTotalInterest = toFixedNumber(totalInterest + earlyRepaymentFee + currentPeriodTodayInterest);
-            earlyRepaymentTotalInterestTd.textContent = earlyRepaymentTotalInterest;
+            earlyRepaymentTotalInterestTd.textContent = earlyRepaymentTotalInterest.toFixed(2);
         };
 
         const renderLoanRepaymentPlanTable = (rows) => {
